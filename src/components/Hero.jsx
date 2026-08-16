@@ -37,7 +37,7 @@ const Hero = () => {
     for (let i = 1; i <= frameCount; i++) {
       const num = String(i).padStart(3, '0');
       const img = new Image();
-      img.src = `/src/assets/hero-video/ezgif-frame-${num}.jpg`;
+      img.src = `${import.meta.env.BASE_URL}hero-video/ezgif-frame-${num}.jpg`;
       
       img.onload = () => {
         loadedCount++;
