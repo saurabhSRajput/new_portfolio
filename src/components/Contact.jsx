@@ -33,55 +33,55 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative py-28 px-6 md:px-16 bg-[#040404] text-white overflow-hidden">
+    <section id="contact" className="relative py-20 sm:py-28 px-4 sm:px-6 md:px-16 bg-[#040404] text-white overflow-hidden">
       
       <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-[#ff2a2a]/10 rounded-full blur-[220px] pointer-events-none"></div>
 
       <div className="max-w-[1800px] mx-auto">
         
         {/* SECTION HEADER */}
-        <div className="mb-20 pb-8 border-b border-white/10">
+        <div className="mb-12 sm:mb-20 pb-6 sm:pb-8 border-b border-white/10">
           <div className="flex items-center gap-3 mb-4">
             <span className="w-8 h-[2px] bg-[#ff2a2a]"></span>
             <span className="text-[#ff2a2a] text-xs uppercase font-mono tracking-[3px]">
               GET IN TOUCH // START A COLLABORATION
             </span>
           </div>
-          <h2 className="text-4xl md:text-7xl font-extrabold tracking-tight font-syne uppercase leading-none">
-            LET'S BUILD SOMETHING <br />
+          <h2 className="text-3xl sm:text-4xl md:text-7xl font-extrabold tracking-tight font-syne uppercase leading-none">
+            LET'S BUILD SOMETHING <br className="hidden sm:block" />
             <span className="text-[#ff2a2a] italic font-normal">IMPACTFUL.</span>
           </h2>
         </div>
 
         {/* 2-COLUMN LAYOUT */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16">
           
           {/* LEFT COLUMN */}
-          <div className="lg:col-span-5 space-y-10">
+          <div className="lg:col-span-5 space-y-8 sm:space-y-10">
             <div>
-              <h3 className="text-xl font-bold font-syne uppercase mb-4 text-white">
+              <h3 className="text-lg sm:text-xl font-bold font-syne uppercase mb-4 text-white">
                 OPEN TO COLLABORATIONS
               </h3>
-              <p className="text-white/70 text-base leading-relaxed font-light">
+              <p className="text-white/70 text-sm sm:text-base leading-relaxed font-light">
                 Whether you're building an AI-powered product, need data science consulting, want to collaborate on a hackathon, or have a startup idea — I'd love to connect and explore how we can create something meaningful together.
               </p>
             </div>
 
             {/* Quick Email Copy Card */}
-            <div className="p-6 rounded-2xl bg-[#0a0a0a] border border-white/10">
-              <span className="text-[11px] font-mono uppercase tracking-widest text-white/40 block mb-2">
+            <div className="p-4 sm:p-6 rounded-2xl bg-[#0a0a0a] border border-white/10">
+              <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-white/40 block mb-2">
                 UNIVERSITY EMAIL
               </span>
-              <div className="flex items-center justify-between gap-4">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
                 <a
                   href={`mailto:${personalData.email}`}
-                  className="text-sm font-bold font-syne text-white hover:text-[#ff2a2a] transition-colors duration-300 truncate"
+                  className="text-xs sm:text-sm font-bold font-syne text-white hover:text-[#ff2a2a] transition-colors duration-300 truncate"
                 >
                   {personalData.email}
                 </a>
                 <button
                   onClick={handleCopyEmail}
-                  className="px-4 py-2 rounded-xl bg-white/10 hover:bg-[#ff2a2a] text-white transition-all duration-300 flex items-center gap-2 text-xs font-mono shrink-0 cursor-pointer"
+                  className="px-3 sm:px-4 py-2 rounded-xl bg-white/10 hover:bg-[#ff2a2a] text-white transition-all duration-300 flex items-center gap-2 text-xs font-mono shrink-0 cursor-pointer"
                 >
                   {copied ? (
                     <><Check size={14} className="text-emerald-400" /><span>COPIED!</span></>
@@ -93,31 +93,31 @@ const Contact = () => {
             </div>
 
             {/* Location & Phone */}
-            <div className="space-y-4 pt-2">
-              <div className="flex items-center gap-3 text-sm text-white/80">
-                <MapPin size={18} className="text-[#ff2a2a]" />
+            <div className="space-y-3 sm:space-y-4 pt-2">
+              <div className="flex items-center gap-3 text-xs sm:text-sm text-white/80">
+                <MapPin size={16} className="text-[#ff2a2a] shrink-0" />
                 <span>{personalData.location}</span>
               </div>
               {personalData.phone && (
-                <div className="flex items-center gap-3 text-sm text-white/80">
-                  <Phone size={18} className="text-[#ff2a2a]" />
+                <div className="flex items-center gap-3 text-xs sm:text-sm text-white/80">
+                  <Phone size={16} className="text-[#ff2a2a] shrink-0" />
                   <a href={`tel:${personalData.phone}`} className="hover:text-[#ff2a2a] transition-colors">
                     {personalData.phone}
                   </a>
                 </div>
               )}
-              <div className="flex items-center gap-3 text-sm text-emerald-400 font-mono">
+              <div className="flex items-center gap-3 text-xs sm:text-sm text-emerald-400 font-mono">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping shrink-0"></span>
                 <span>{personalData.status}</span>
               </div>
             </div>
 
             {/* Social Links Grid */}
-            <div className="pt-6 border-t border-white/10">
+            <div className="pt-4 sm:pt-6 border-t border-white/10">
               <h4 className="text-xs font-mono uppercase tracking-widest text-white/40 mb-4">
                 CONNECT ON SOCIALS
               </h4>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2 sm:gap-3">
                 {personalData.socials.map((social) => {
                   const Icon = getSocialIcon(social.name);
                   return (
@@ -126,7 +126,7 @@ const Contact = () => {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-[#ff2a2a] hover:bg-[#ff2a2a]/10 hover:text-[#ff2a2a] text-white/80 text-xs font-mono transition-all duration-300 flex items-center gap-2"
+                      className="px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-[#ff2a2a] hover:bg-[#ff2a2a]/10 hover:text-[#ff2a2a] text-white/80 text-xs font-mono transition-all duration-300 flex items-center gap-2"
                     >
                       <Icon size={14} />
                       <span>{social.name}</span>
@@ -138,14 +138,14 @@ const Contact = () => {
           </div>
 
           {/* RIGHT COLUMN: Form */}
-          <div className="lg:col-span-7 bg-[#0a0a0a] rounded-3xl p-8 md:p-12 border border-white/10">
-            <h3 className="text-2xl font-extrabold font-syne uppercase mb-6 text-white flex items-center gap-3">
-              <Sparkles size={20} className="text-[#ff2a2a]" />
+          <div className="lg:col-span-7 bg-[#0a0a0a] rounded-3xl p-6 sm:p-8 md:p-12 border border-white/10">
+            <h3 className="text-xl sm:text-2xl font-extrabold font-syne uppercase mb-6 text-white flex items-center gap-3">
+              <Sparkles size={20} className="text-[#ff2a2a] shrink-0" />
               SEND A MESSAGE
             </h3>
 
             {submitted && (
-              <div className="p-4 mb-6 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm font-mono flex items-center gap-3">
+              <div className="p-4 mb-6 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs sm:text-sm font-mono flex items-center gap-3">
                 <Check size={18} />
                 <span>Thank you! Your message has been sent. I'll reply within 24 hours.</span>
               </div>

@@ -353,24 +353,24 @@ const Hero = () => {
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[1]">
           <div 
             ref={circleRef}
-            className="absolute rounded-full border border-[rgba(255,0,0,0.8)] h-[320px] w-[320px] md:h-[500px] md:w-[500px] lg:h-[650px] lg:w-[650px]"
+            className="absolute rounded-full border border-[rgba(255,0,0,0.8)] h-[180px] w-[180px] sm:h-[320px] sm:w-[320px] md:h-[500px] md:w-[500px] lg:h-[650px] lg:w-[650px]"
             style={{ borderWidth: '1px' }}
           ></div>
         </div>
 
         {/* BOTTOM CONTENT OVERLAY */}
-        <div className="absolute bottom-0 left-0 w-full z-[10] px-8 md:px-16 pb-12 flex flex-col pointer-events-auto">
+        <div className="absolute bottom-0 left-0 w-full z-[10] px-4 sm:px-8 md:px-16 pb-8 sm:pb-12 flex flex-col pointer-events-auto">
           
           {/* Top Row: 3 Columns */}
-          <div className="flex flex-col md:flex-row justify-between items-end w-full mb-8 max-w-[1800px] mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-end w-full mb-6 sm:mb-8 max-w-[1800px] mx-auto">
             
             {/* LEFT COLUMN */}
-            <div className="flex-1 mb-8 md:mb-0">
-              <div className="w-8 h-[1px] bg-[#ff2a2a] mb-5"></div>
-              <h3 className="hero-title opacity-0 text-[#ff2a2a] text-[12px] uppercase tracking-[2px] font-medium mb-3">
+            <div className="flex-1 mb-6 sm:mb-8 md:mb-0">
+              <div className="w-8 h-[1px] bg-[#ff2a2a] mb-4 sm:mb-5"></div>
+              <h3 className="hero-title opacity-0 text-[#ff2a2a] text-[10px] sm:text-[12px] uppercase tracking-[2px] font-medium mb-2 sm:mb-3">
                 SAURABH RAJ SINGH
               </h3>
-              <p className="hero-subtitle opacity-0 text-[#ffffff] text-[14px] leading-[1.4] font-light max-w-[200px]" style={{ fontFamily: '"Inter", "Outfit", sans-serif' }}>
+              <p className="hero-subtitle opacity-0 text-[#ffffff] text-[12px] sm:text-[14px] leading-[1.4] font-light max-w-[200px]" style={{ fontFamily: '"Inter", "Outfit", sans-serif' }}>
                 AI ENGINEER &<br/>INNOVATION LEADER.
               </p>
             </div>
@@ -381,7 +381,7 @@ const Hero = () => {
             {/* RIGHT COLUMN */}
             <div className="flex-1 flex justify-start md:justify-end">
               <a href="#work" className="hero-cta opacity-0 group inline-flex flex-col items-start md:items-end">
-                <div className="flex items-center text-[#ff2a2a] text-[12px] uppercase tracking-[2px] mb-2 transition-colors duration-300 group-hover:text-white">
+                <div className="flex items-center text-[#ff2a2a] text-[10px] sm:text-[12px] uppercase tracking-[2px] mb-2 transition-colors duration-300 group-hover:text-white">
                   <span className="mr-2">VIEW WORK</span>
                   <span className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
                 </div>
@@ -391,10 +391,10 @@ const Hero = () => {
           </div>
 
           {/* BOTTOM ROW */}
-          <div className="w-full max-w-[1800px] mx-auto flex flex-col md:flex-row justify-between items-center pt-8 border-t border-[rgba(255,255,255,0.05)]">
+          <div className="w-full max-w-[1800px] mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center pt-6 sm:pt-8 border-t border-[rgba(255,255,255,0.05)] gap-4">
             
             {/* Left Side Socials */}
-            <div className="flex items-center space-x-8 mb-4 md:mb-0">
+            <div className="flex items-center gap-4 sm:gap-8 flex-wrap">
               {[
                 { name: 'GITHUB', url: 'https://github.com/saurabhSRajput' },
                 { name: 'LINKEDIN', url: 'https://linkedin.com/in/saurabh-raj-singh-302b55272' }
@@ -404,7 +404,7 @@ const Hero = () => {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#ff2a2a] text-[10px] uppercase tracking-[2px] transition-colors duration-300 hover:text-white"
+                  className="text-[#ff2a2a] text-[9px] sm:text-[10px] uppercase tracking-[2px] transition-colors duration-300 hover:text-white"
                 >
                   {social.name}
                 </a>
@@ -412,7 +412,7 @@ const Hero = () => {
             </div>
 
             {/* Right Side Copyright */}
-            <div className="text-[rgba(255,255,255,0.5)] text-[10px] uppercase tracking-[1px]">
+            <div className="text-[rgba(255,255,255,0.5)] text-[9px] sm:text-[10px] uppercase tracking-[1px]">
               &copy; 2026 SAURABH RAJ SINGH. CSVTU BHILAI.
             </div>
 

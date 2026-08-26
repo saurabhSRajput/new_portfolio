@@ -7,7 +7,7 @@ const About = () => {
   const [activeTab, setActiveTab] = useState('experience');
 
   return (
-    <section id="about" className="relative py-28 px-6 md:px-16 bg-[#050505] text-white overflow-hidden">
+    <section id="about" className="relative py-20 sm:py-28 px-4 sm:px-6 md:px-16 bg-[#050505] text-white overflow-hidden">
       
       {/* Background Accent Gradients */}
       <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-[#ff2a2a]/5 rounded-full blur-[180px] pointer-events-none"></div>
@@ -16,7 +16,7 @@ const About = () => {
       <div className="max-w-[1800px] mx-auto">
         
         {/* SECTION HEADER */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 pb-8 border-b border-white/10 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 sm:mb-20 pb-6 sm:pb-8 border-b border-white/10 gap-6">
           <div>
             <div className="flex items-center gap-3 mb-4">
               <span className="w-8 h-[2px] bg-[#ff2a2a]"></span>
@@ -24,13 +24,13 @@ const About = () => {
                 PHILOSOPHY & BACKGROUND
               </span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight font-syne uppercase">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight font-syne uppercase">
               ABOUT <span className="text-[#ff2a2a] italic font-normal">ME</span>
             </h2>
           </div>
 
           <div className="flex items-center gap-3 bg-emerald-500/10 border border-emerald-500/30 px-4 py-2 rounded-full w-fit">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
             <span className="text-emerald-400 text-xs font-mono tracking-wider font-semibold uppercase">
               {personalData.status}
             </span>

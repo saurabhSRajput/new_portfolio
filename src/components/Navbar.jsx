@@ -49,13 +49,13 @@ const Navbar = () => {
     <>
       <nav 
         ref={navRef}
-        className="fixed top-0 left-0 w-full h-[80px] z-[100] flex items-center justify-between px-6 md:px-16 bg-black/40 backdrop-blur-md border-b border-white/5"
+        className="fixed top-0 left-0 w-full h-[70px] sm:h-[80px] z-[100] flex items-center justify-between px-4 sm:px-6 md:px-16 bg-black/40 backdrop-blur-md border-b border-white/5"
       >
         {/* LEFT: Logo */}
         <a 
           href="#"
           ref={logoRef}
-          className="relative z-10 text-[#ff2a2a] font-black text-xl tracking-[0.2em] cursor-pointer transition-transform duration-500 hover:scale-[1.02] font-syne"
+          className="relative z-10 text-[#ff2a2a] font-black text-base sm:text-xl tracking-[0.2em] cursor-pointer transition-transform duration-500 hover:scale-[1.02] font-syne"
         >
           {personalData.name}&deg;
         </a>
@@ -96,22 +96,22 @@ const Navbar = () => {
 
       {/* FULLSCREEN MOBILE/EXPANDED DRAWER MENU */}
       <div 
-        className={`fixed inset-0 z-[90] bg-[#080808]/95 backdrop-blur-2xl transition-all duration-500 flex flex-col justify-between p-8 md:p-16 ${
+        className={`fixed inset-0 z-[90] bg-[#080808]/95 backdrop-blur-2xl transition-all duration-500 flex flex-col justify-between p-4 sm:p-8 md:p-16 ${
           mobileMenuOpen ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none -translate-y-6'
         }`}
       >
-        <div className="pt-24 max-w-4xl">
-          <span className="text-[#ff2a2a] text-xs font-mono uppercase tracking-[3px] block mb-8">
+        <div className="pt-16 sm:pt-24 max-w-4xl">
+          <span className="text-[#ff2a2a] text-xs font-mono uppercase tracking-[3px] block mb-6 sm:mb-8">
             NAVIGATION DIRECTORY
           </span>
 
-          <div className="flex flex-col space-y-6">
+          <div className="flex flex-col space-y-4 sm:space-y-6">
             {navLinks.map((link, idx) => (
               <a
                 key={link}
                 href={`#${link.toLowerCase()}`}
                 onClick={(e) => handleNavClick(e, link.toLowerCase())}
-                className="text-4xl md:text-6xl font-black font-syne uppercase text-white hover:text-[#ff2a2a] transition-all duration-300 flex items-center justify-between group py-2 border-b border-white/5"
+                className="text-2xl sm:text-4xl md:text-6xl font-black font-syne uppercase text-white hover:text-[#ff2a2a] transition-all duration-300 flex items-center justify-between group py-2 border-b border-white/5"
               >
                 <span>{link}</span>
                 <span className="text-xs font-mono text-white/40 group-hover:text-[#ff2a2a] group-hover:translate-x-2 transition-all">
@@ -123,15 +123,15 @@ const Navbar = () => {
         </div>
 
         {/* Footer info inside menu drawer */}
-        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+        <div className="pt-6 sm:pt-8 border-t border-white/10 flex flex-col gap-6">
           <div>
             <span className="text-[10px] font-mono uppercase text-white/40 block mb-1">Direct Inquiries</span>
-            <a href={`mailto:${personalData.email}`} className="text-sm font-syne text-[#ff2a2a] font-bold hover:underline">
+            <a href={`mailto:${personalData.email}`} className="text-xs sm:text-sm font-syne text-[#ff2a2a] font-bold hover:underline break-all">
               {personalData.email}
             </a>
           </div>
 
-          <div className="flex items-center space-x-6 text-xs font-mono text-white/60">
+          <div className="flex flex-wrap gap-3 text-xs font-mono text-white/60">
             {personalData.socials.map((social) => (
               <a
                 key={social.name}

@@ -18,7 +18,7 @@ const Work = ({ onSelectProject }) => {
     : projectsData.filter(p => p.filter === activeFilter);
 
   return (
-    <section id="work" className="relative py-28 px-6 md:px-16 bg-black text-white overflow-hidden">
+    <section id="work" className="relative py-20 sm:py-28 px-4 sm:px-6 md:px-16 bg-black text-white overflow-hidden">
       
       {/* Background Subtle Red Accent Glows */}
       <div className="absolute top-1/4 -left-48 w-96 h-96 bg-[#ff2a2a]/10 rounded-full blur-[140px] pointer-events-none"></div>
@@ -27,7 +27,7 @@ const Work = ({ onSelectProject }) => {
       <div className="max-w-[1800px] mx-auto">
         
         {/* SECTION HEADER */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 pb-8 border-b border-white/10 gap-8">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 sm:mb-16 pb-6 sm:pb-8 border-b border-white/10 gap-6">
           <div>
             <div className="flex items-center gap-3 mb-4">
               <span className="w-8 h-[2px] bg-[#ff2a2a]"></span>
@@ -35,18 +35,18 @@ const Work = ({ onSelectProject }) => {
                 SELECTED ARCHIVE // 2024 — 2026
               </span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight font-syne uppercase">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight font-syne uppercase">
               FEATURED <span className="text-[#ff2a2a] italic font-normal">WORKS</span>
             </h2>
           </div>
 
           {/* Category Filter Buttons */}
-          <div className="flex flex-wrap items-center gap-2 md:gap-3 bg-white/[0.03] p-1.5 rounded-full border border-white/10">
+          <div className="flex flex-wrap items-center gap-2 md:gap-3 bg-white/[0.03] p-1.5 rounded-full border border-white/10 overflow-x-auto">
             {filterOptions.map((option) => (
               <button
                 key={option.id}
                 onClick={() => setActiveFilter(option.id)}
-                className={`px-5 py-2 rounded-full text-[11px] font-mono tracking-[1.5px] uppercase transition-all duration-300 cursor-pointer ${
+                className={`px-3 sm:px-5 py-2 rounded-full text-[10px] sm:text-[11px] font-mono tracking-[1.5px] uppercase transition-all duration-300 cursor-pointer whitespace-nowrap ${
                   activeFilter === option.id
                     ? 'bg-[#ff2a2a] text-white shadow-lg shadow-[#ff2a2a]/30 font-bold'
                     : 'text-white/60 hover:text-white hover:bg-white/10'
@@ -59,7 +59,7 @@ const Work = ({ onSelectProject }) => {
         </div>
 
         {/* PROJECTS GRID */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-10 md:gap-14">
           {filteredProjects.map((project) => (
             <div
               key={project.id}

@@ -6,14 +6,14 @@ const Services = () => {
   const [expandedId, setExpandedId] = useState("01");
 
   return (
-    <section id="services" className="relative py-28 px-6 md:px-16 bg-black text-white overflow-hidden">
+    <section id="services" className="relative py-20 sm:py-28 px-4 sm:px-6 md:px-16 bg-black text-white overflow-hidden">
       
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#ff2a2a]/5 rounded-full blur-[200px] pointer-events-none"></div>
 
       <div className="max-w-[1800px] mx-auto">
         
         {/* SECTION HEADER */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 pb-8 border-b border-white/10 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 sm:mb-20 pb-6 sm:pb-8 border-b border-white/10 gap-6">
           <div>
             <div className="flex items-center gap-3 mb-4">
               <span className="w-8 h-[2px] bg-[#ff2a2a]"></span>
@@ -21,11 +21,11 @@ const Services = () => {
                 WHAT I BRING TO THE TABLE
               </span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight font-syne uppercase">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight font-syne uppercase">
               SERVICES & <span className="text-[#ff2a2a] italic font-normal">CAPABILITIES</span>
             </h2>
           </div>
-          <p className="text-white/60 text-sm max-w-md font-light">
+          <p className="text-white/60 text-xs sm:text-sm max-w-md font-light">
             From cutting-edge AI/ML solutions to product strategy consulting — I combine technical depth with business acumen to deliver measurable impact.
           </p>
         </div>

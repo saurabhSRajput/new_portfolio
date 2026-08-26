@@ -95,3 +95,36 @@ body {
   background-image: radial-gradient(rgba(255, 42, 42, 0.08) 1px, transparent 0);
   background-size: 24px 24px;
 }
+
+/* Mobile-optimized typography */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+  
+  body {
+    line-height: 1.5;
+  }
+}
+
+/* Touch-friendly button sizes on mobile */
+@media (max-width: 768px) {
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Optimize scrollbar for mobile */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+}
+
+/* Reduce animation complexity on mobile for better performance */
+@media (max-width: 768px) {
+  * {
+    --tw-duration: 150ms;
+  }
+}
