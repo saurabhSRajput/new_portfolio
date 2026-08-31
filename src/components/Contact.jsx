@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { personalData } from '../data/portfolioData';
-import { Mail, Copy, Check, Send, Sparkles, MapPin, Phone } from 'lucide-react';
+import { Copy, Check, Send, Sparkles, MapPin, Phone, AlertCircle } from 'lucide-react';
 import { getSocialIcon } from './SocialIcons';
+
+const emailServiceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const emailTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const emailPublicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+const emailJsConfigured = Boolean(emailServiceId && emailTemplateId && emailPublicKey);
 
 const Contact = () => {
   const [copied, setCopied] = useState(false);
@@ -13,7 +19,7 @@ const Contact = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [statusMessage, setStatusMessage] = useState({ type: '', text: '' });
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(personalData.email);
@@ -21,15 +27,69 @@ const Contact = () => {
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const handleSubmit = (e) => {
+  const createMailtoUrl = ({ name, email, service, budget, message }) => {
+    const subject = encodeURIComponent(`New collaboration inquiry from ${name}`);
+    const body = encodeURIComponent(
+      [
+        `Name: ${name}`,
+        `Email: ${email}`,
+        `Collaboration Type: ${service}`,
+        `Engagement Scope: ${budget}`,
+        '',
+        'Message:',
+        message
+      ].join('\n')
+    );
+
+    return `mailto:${personalData.email}?subject=${subject}&body=${body}`;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitted(true);
+    setStatusMessage({ type: '', text: '' });
+
+    try {
+      const { name, email, service, budget, message } = formState;
+
+      if (emailJsConfigured) {
+        await emailjs.send(
+          emailServiceId,
+          emailTemplateId,
+          {
+            from_name: name,
+            from_email: email,
+            reply_to: email,
+            service,
+            budget,
+            message,
+            to_email: personalData.email,
+          },
+          emailPublicKey
+        );
+
+        setStatusMessage({
+          type: 'success',
+          text: "Thank you! Your message has been sent. I'll reply within 24 hours."
+        });
+      } else {
+        window.location.href = createMailtoUrl({ name, email, service, budget, message });
+        setStatusMessage({
+          type: 'success',
+          text: 'Your email draft has been opened. Please send it to receive the message in your inbox.'
+        });
+      }
+
       setFormState({ name: '', email: '', service: 'AI/ML Development', budget: "Let's Discuss", message: '' });
-      setTimeout(() => setSubmitted(false), 5000);
-    }, 1200);
+    } catch (error) {
+      console.error('Contact form submission failed:', error);
+      setStatusMessage({
+        type: 'error',
+        text: 'Something went wrong while sending your message. Please try again or use the email link.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -144,10 +204,16 @@ const Contact = () => {
               SEND A MESSAGE
             </h3>
 
-            {submitted && (
-              <div className="p-4 mb-6 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs sm:text-sm font-mono flex items-center gap-3">
-                <Check size={18} />
-                <span>Thank you! Your message has been sent. I'll reply within 24 hours.</span>
+            {statusMessage.text && (
+              <div
+                className={`p-4 mb-6 rounded-xl border text-xs sm:text-sm font-mono flex items-center gap-3 ${
+                  statusMessage.type === 'error'
+                    ? 'bg-red-500/10 border-red-500/30 text-red-400'
+                    : 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400'
+                }`}
+              >
+                {statusMessage.type === 'error' ? <AlertCircle size={18} /> : <Check size={18} />}
+                <span>{statusMessage.text}</span>
               </div>
             )}
 
